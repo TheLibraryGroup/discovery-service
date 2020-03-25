@@ -1,10 +1,10 @@
-package org.thibaut.serviceregister;
+package org.thibaut.discoveryservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServiceRegisterApplicationTests {
+class DiscoveryServiceApplicationTests {
 
 	@Test
 	void contextLoads( ) {
