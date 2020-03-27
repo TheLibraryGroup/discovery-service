@@ -6,10 +6,21 @@ spring:
     cloud:
         config:
             uri: http://localhost:8888
+            username: confUser
+            password: confPassword
     security:
         user:
-            name: theusername
-            password: password
+            name: confUser
+            password: confPassword
+            roles: SYSTEM
+
+
+#server:
+#    port: 8761
+#eureka:
+#    client:
+#        registerWithEureka: false
+#        fetchRegistry: false
 #    security:
 #        oauth2:
 #            client:

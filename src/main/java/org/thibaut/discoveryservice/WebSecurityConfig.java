@@ -12,36 +12,28 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 @EnableWebSecurity
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//	@Override
-//	public void configure( AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication()
-//				.passwordEncoder( NoOpPasswordEncoder.getInstance())
-//				.withUser("admin").password("admin")
-//				.authorities("ADMIN");
-//	}
+	@Override
+	public void configure( AuthenticationManagerBuilder auth) throws Exception {
+		auth
+				.inMemoryAuthentication()
+				.passwordEncoder( NoOpPasswordEncoder.getInstance())
+				.withUser("discUser")
+				.password("discPassword")
+				.authorities("ADMIN");
+	}
 
-//	@Override
-//	protected void configure(HttpSecurity http) throws Exception {
-//		http
-//				.csrf().disable().authorizeRequests().anyRequest().authenticated()
-//				.and().httpBasic();
-//	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable() //
+		http
+				.csrf().disable() //
 				.authorizeRequests() //
 				.antMatchers(HttpMethod.GET, "/eureka/**").authenticated() // eureka client
 				.antMatchers(HttpMethod.POST, "/eureka/**").authenticated() // eureka client
 				.antMatchers(HttpMethod.DELETE, "/eureka/**").authenticated() // eureka client
-				.anyRequest().authenticated().and().httpBasic(); // dashboard authorization
+				.anyRequest().authenticated().and()
+				.httpBasic(); // dashboard authorization
 	}
-
-//    @Override
-//    protected void configure( HttpSecurity http) throws Exception {
-//        http.csrf().ignoringAntMatchers("/eureka/**").disable();
-//        super.configure(http);
-//    }
 
 //	@Override
 //	protected void configure( HttpSecurity http ) throws Exception {
