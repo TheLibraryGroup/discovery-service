@@ -1,44 +1,22 @@
 
+server:
+    port: ${SERVER-PORT}
 
 spring:
     application:
         name: discovery-service
     cloud:
         config:
-            uri: http://localhost:8888
-            username: confUser
-            password: confPassword
-    security:
-        user:
-            name: confUser
-            password: confPassword
-            roles: SYSTEM
-
-
-#server:
-#    port: 8761
-#eureka:
-#    client:
-#        registerWithEureka: false
-#        fetchRegistry: false
+            uri: ${SPRING-CLOUD-CONFIG-URI}
+            username: ${SPRING-CLOUD-CONFIG-USERNAME}
+            password: ${SPRING-CLOUD-CONFIG-PWD}
+#            discovery:
+#                service-id:
 #    security:
-#        oauth2:
-#            client:
-#                provider:
-#                    keycloak:
-#                        #                        issuer-uri: https://www.auth.thelibrary.mypoc.online/auth/realms/TheLibrary
-#                        issuer-uri: http://localhost:8080/auth/realms/TheLibrary
-#                        user-name-attribute: preferred_username
-#                registration:
-#                    keycloak:
-#                        client-id: thelibrary-app
-#                        client-secret: 5902eff4-0127-440d-92d5-f0c0682ff4d7
-#server:
-#    port: 8761
-#eureka:
-#    client:
-#        registerWithEureka: false
-#        fetchRegistry: false
+#        user:
+#            name: confUser
+#            password: confPassword
+#            roles: SYSTEM
 
 management:
     endpoints:
