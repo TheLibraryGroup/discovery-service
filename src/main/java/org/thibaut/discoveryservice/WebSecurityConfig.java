@@ -28,6 +28,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 				.csrf().disable() //
 				.authorizeRequests() //
+				.mvcMatchers(HttpMethod.GET, "/actuator/**").permitAll() // eureka client
 				.antMatchers(HttpMethod.GET, "/eureka/**").authenticated() // eureka client
 				.antMatchers(HttpMethod.POST, "/eureka/**").authenticated() // eureka client
 				.antMatchers(HttpMethod.DELETE, "/eureka/**").authenticated() // eureka client

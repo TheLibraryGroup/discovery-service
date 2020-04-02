@@ -2,18 +2,18 @@ package org.thibaut.discoveryservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.web.server.ServerHttpSecurity;
+
 //import org.springframework.security.oauth2.client.registration.ReactiveClientRegistrationRepository;
-import org.springframework.security.web.server.SecurityWebFilterChain;
-import org.springframework.security.config.web.server.ServerHttpSecurity;
-import org.springframework.stereotype.Component;
 
 
 @EnableEurekaServer
 @SpringBootApplication
+@Configuration
+@EnableEurekaClient
+//@EnableAdminServer
 public class DiscoveryServiceApplication {
 
 	public static void main( String[] args ) {

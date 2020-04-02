@@ -2,6 +2,21 @@
 server:
     port: ${SERVER-PORT}
 
+eureka:
+    instance:
+        leaseRenewalIntervalInSeconds: 10
+        health-check-url-path: /actuator/health
+        metadata-map:
+#            user.name: "user"         #These two are needed so that the server
+#            user.password: "password"
+            startup: ${random.int}    #needed to trigger info and endpoint update after restart
+    client:
+#        registerWithEureka: false
+#        fetchRegistry: false
+        registryFetchIntervalSeconds: 5
+        serviceUrl:
+            defaultZone: ${EUREKA-CLIENT-SERVICEURL-DEFAULTZONE}
+
 spring:
     application:
         name: discovery-service
@@ -10,6 +25,10 @@ spring:
             uri: ${SPRING-CLOUD-CONFIG-URI}
             username: ${SPRING-CLOUD-CONFIG-USERNAME}
             password: ${SPRING-CLOUD-CONFIG-PWD}
+#    security:
+#        user:
+#            name: "user"
+#            password: "password"
 #            discovery:
 #                service-id:
 #    security:
@@ -19,6 +38,9 @@ spring:
 #            roles: SYSTEM
 
 management:
+    endpoint:
+        health:
+            show-details: always
     endpoints:
         web:
             exposure:
