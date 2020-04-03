@@ -1,6 +1,6 @@
 
 server:
-    port: ${SERVER-PORT}
+    port: ${SERVER_PORT}
 
 eureka:
     instance:
@@ -15,16 +15,16 @@ eureka:
 #        fetchRegistry: false
         registryFetchIntervalSeconds: 5
         serviceUrl:
-            defaultZone: ${EUREKA-CLIENT-SERVICEURL-DEFAULTZONE}
+            defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
 
 spring:
     application:
         name: discovery-service
     cloud:
         config:
-            uri: ${SPRING-CLOUD-CONFIG-URI}
-            username: ${SPRING-CLOUD-CONFIG-USERNAME}
-            password: ${SPRING-CLOUD-CONFIG-PWD}
+            uri: ${SPRING_CLOUD_CONFIG_URI}
+            username: ${SPRING_CLOUD_CONFIG_USERNAME}
+            password: ${SPRING_CLOUD_CONFIG_PWD}
 #    security:
 #        user:
 #            name: "user"
