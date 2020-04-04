@@ -1,4 +1,4 @@
-package org.thibaut.discoveryservice;
+package org.thibaut.thelibrary.discoveryservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

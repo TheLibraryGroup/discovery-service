@@ -1,4 +1,4 @@
-package org.thibaut.discoveryservice;
+package org.thibaut.thelibrary.discoveryservice;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
