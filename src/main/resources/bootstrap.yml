@@ -19,7 +19,7 @@ eureka:
 
 spring:
     application:
-        name: discovery-service
+        name: discovery
     cloud:
         config:
             uri: ${SPRING_CLOUD_CONFIG_URI}
