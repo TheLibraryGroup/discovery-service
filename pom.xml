@@ -11,12 +11,12 @@
 	<groupId>org.thibaut.thelibrary</groupId>
 	<artifactId>discovery-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>service-register</name>
+	<name>discovery-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>11</java.version>
-		<start-class>org.thibaut.thelibrary.discoveryservice.DiscoveryServiceApplication</start-class>
+		<start-class>org.thibaut.thelibrary.discoveryservice.DiscoveryApplication</start-class>
 		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
 		<spring-boot-starter-oauth2-client.version>2.2.5.RELEASE</spring-boot-starter-oauth2-client.version>
 		<spring-cloud-security.version>2.2.1.RELEASE</spring-cloud-security.version>

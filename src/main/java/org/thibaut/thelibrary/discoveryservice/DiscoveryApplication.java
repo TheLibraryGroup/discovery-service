@@ -14,10 +14,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableEurekaClient
 //@EnableAdminServer
-public class DiscoveryServiceApplication {
+public class DiscoveryApplication {
 
 	public static void main( String[] args ) {
-		SpringApplication.run( DiscoveryServiceApplication.class, args );
+		SpringApplication.run( DiscoveryApplication.class, args );
 	}
 
 //	@Bean
