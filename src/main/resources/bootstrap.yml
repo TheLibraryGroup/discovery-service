@@ -11,8 +11,6 @@ eureka:
 #            user.password: "password"
             startup: ${random.int}    #needed to trigger info and endpoint update after restart
     client:
-#        registerWithEureka: false
-#        fetchRegistry: false
         registryFetchIntervalSeconds: 5
         serviceUrl:
             defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
@@ -37,11 +35,25 @@ spring:
 #            password: confPassword
 #            roles: SYSTEM
 
+hystrix:
+    metrics:
+        polling-interval-ms: 3000
+        enabled: true
+
 management:
     endpoint:
         health:
             show-details: always
+        hystrix:
+            stream:
+                enabled: true
     endpoints:
         web:
             exposure:
                 include: "*"
+
+turbine:
+    aggregator:
+        cluster-config: thelibrary
+    app-config: book, loan
+    clusterNameExpression: "'default'"

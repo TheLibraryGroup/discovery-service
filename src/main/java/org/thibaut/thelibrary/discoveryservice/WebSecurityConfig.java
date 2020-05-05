@@ -26,23 +26,21 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-				.csrf().disable() //
-				.authorizeRequests() //
-				.mvcMatchers(HttpMethod.GET, "/actuator/**").permitAll() // eureka client
-				.antMatchers(HttpMethod.GET, "/eureka/**").authenticated() // eureka client
-				.antMatchers(HttpMethod.POST, "/eureka/**").authenticated() // eureka client
-				.antMatchers(HttpMethod.DELETE, "/eureka/**").authenticated() // eureka client
+				.csrf().disable()
+				.authorizeRequests()
+				.mvcMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+				.antMatchers(HttpMethod.GET, "/assets/**").authenticated()
+				.antMatchers(HttpMethod.GET, "/eureka/**").authenticated()
+				.antMatchers(HttpMethod.POST, "/eureka/**").authenticated()
+				.antMatchers(HttpMethod.DELETE, "/eureka/**").authenticated()
+
+//				.antMatchers(HttpMethod.GET, "/hystrix/**").permitAll()
+//				.antMatchers(HttpMethod.POST, "/hystrix/**").permitAll()
+//				.antMatchers(HttpMethod.DELETE, "/hystrix/**").permitAll()
+//				.antMatchers(HttpMethod.PUT, "/hystrix/**").permitAll()
+
 				.anyRequest().authenticated().and()
-				.httpBasic(); // dashboard authorization
+				.httpBasic();
 	}
 
-//	@Override
-//	protected void configure( HttpSecurity http ) throws Exception {
-//		http.sessionManagement( )
-//				.sessionCreationPolicy( SessionCreationPolicy.ALWAYS )
-////				.and( ).requestMatchers( ).antMatchers( "/eureka/**" )
-//				.and( ).authorizeRequests( ).mvcMatchers( "/eureka/**" ).hasAnyRole( "ADMIN", "admin" )
-////				.anyRequest( ).denyAll( )
-//				.and( ).httpBasic( ).and( ).csrf( ).disable( );
-//	}
 }
